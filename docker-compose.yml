@@ -14,7 +14,7 @@ services:
       - app-network
 
   mongo-express:
-    image: mongo-express:latest
+    image: mongo-express:latestcon
     container_name: mongo-express
     environment:
       ME_CONFIG_MONGODB_SERVER: mongo
