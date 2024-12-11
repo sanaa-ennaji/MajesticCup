@@ -82,13 +82,13 @@ Operator API (requiert le rôle OPERATOR)
 POST /api/operator/matches/results : Saisir les résultats d’un match.
 
 ### Public API
- ````GET /api/public/results ````: Consulter les résultats des matchs.
-````GET /api/public/statistics/top-scorers```` : Classement des meilleurs buteurs.
-```` GET /api/public/statistics/top-assists ````: Classement des meilleurs passeurs.
-````GET /api/public/statistics/cards ````: Classement des cartons.
+- ***````GET /api/public/results ````: Consulter les résultats des matchs.***
+- ***````GET /api/public/statistics/top-scorers```` : Classement des meilleurs buteurs.***
+- ***```` GET /api/public/statistics/top-assists ````: Classement des meilleurs passeurs.***
+- ***````GET /api/public/statistics/cards ````: Classement des cartons.***
 
 ## Technologies utilisées
-Framework : Spring Boot
-Base de données : MongoDB
-Sécurité : Spring Security, JWT
-Configuration : YAML
+- Framework : Spring Boot
+- Base de données : MongoDB
+- Sécurité : Spring Security, JWT
+- Configuration : YAML
