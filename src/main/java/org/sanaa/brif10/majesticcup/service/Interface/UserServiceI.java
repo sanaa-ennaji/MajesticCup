@@ -17,5 +17,5 @@ public interface UserServiceI {
 
     List<UserResponseDTO> getAll();
 
-    List<UserResponseDTO> getByRole(User.UserRole role);
+//    List<UserResponseDTO> getByRole(User.UserRole role);
 }

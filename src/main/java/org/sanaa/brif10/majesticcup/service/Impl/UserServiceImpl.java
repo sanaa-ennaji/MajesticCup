@@ -1,8 +1,10 @@
 package org.sanaa.brif10.majesticcup.service.Impl;
 
+import org.sanaa.brif10.majesticcup.model.dto.Request.UserRequestDTO;
 import org.sanaa.brif10.majesticcup.model.dto.Response.UserResponseDTO;
 import org.sanaa.brif10.majesticcup.model.mapper.UserMapper;
 import org.sanaa.brif10.majesticcup.repository.UserRepository;
+import org.sanaa.brif10.majesticcup.service.Interface.UserServiceI;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
@@ -22,14 +24,14 @@ public class UserServiceImpl implements UserServiceI {
     }
 
     @Override
-    public UserResponseDTO createUser(UserRequestDTO userRequestDTO) {
+    public UserResponseDTO create(UserRequestDTO userRequestDTO) {
         User user = userMapper.toEntity(userRequestDTO);
         User savedUser = userRepository.save(user);
         return userMapper.toResponseDTO(savedUser);
     }
 
     @Override
-    public UserResponseDTO updateUser(String id, UserRequestDTO userRequestDTO) {
+    public UserResponseDTO update(String id, UserRequestDTO userRequestDTO) {
         User user = userRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("User not found"));
         userMapper.updateEntityFromRequest(userRequestDTO, user);
@@ -38,32 +40,32 @@ public class UserServiceImpl implements UserServiceI {
     }
 
     @Override
-    public void deleteUser(String id) {
+    public void delete(String id) {
         User user = userRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("User not found"));
         userRepository.delete(user);
     }
 
     @Override
-    public UserResponseDTO getUserById(String id) {
+    public UserResponseDTO getById(String id) {
         User user = userRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("User not found"));
         return userMapper.toResponseDTO(user);
     }
 
     @Override
-    public List<UserResponseDTO> getAllUsers() {
+    public List<UserResponseDTO> getAll() {
         List<User> users = userRepository.findAll();
         return users.stream()
             .map(userMapper::toResponseDTO)
             .collect(Collectors.toList());
     }
 
-    @Override
-    public List<UserResponseDTO> getUsersByRole(User.UserRole role) {
-        List<User> users = userRepository.findByRole(role);
-        return users.stream()
-            .map(userMapper::toResponseDTO)
-            .collect(Collectors.toList());
-    }
+//    @Override
+//    public List<UserResponseDTO> getByRole(User.UserRole role) {
+//        List<User> users = userRepository.findByRole(role);
+//        return users.stream()
+//            .map(userMapper::toResponseDTO)
+//            .collect(Collectors.toList());
+//    }
 }
