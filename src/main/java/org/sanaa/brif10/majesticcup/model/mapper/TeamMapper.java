@@ -14,6 +14,5 @@ public interface TeamMapper {
     Team toEntity(TeamRequestDTO requestDTO);
     List<TeamResponseDTO> toResponseDTOList(List<Team> entities);
     List<Team> toEntityList(List<TeamRequestDTO> requestDTOs);
-
     void updateEntityFromRequest(TeamRequestDTO requestDTO, @MappingTarget Team team);
 }
