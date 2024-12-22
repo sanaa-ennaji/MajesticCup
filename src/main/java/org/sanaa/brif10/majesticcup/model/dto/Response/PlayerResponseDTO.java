@@ -1,17 +1,12 @@
-package org.sanaa.brif10.majesticcup.model.entity;
-import lombok.*;
+package org.sanaa.brif10.majesticcup.model.dto.Response;
+
+import lombok.Data;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Player {
+public class PlayerResponseDTO {
     private String id;
-
     private String name;
-
     private String surname;
-
     private String position;
-
     private int number;
 }

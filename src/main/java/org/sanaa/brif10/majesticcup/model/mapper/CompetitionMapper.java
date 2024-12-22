@@ -1,4 +1,5 @@
 package org.sanaa.brif10.majesticcup.model.mapper;
 
-public interface CompetetionMapper {
+public interface CompetitionMapper {
+
 }

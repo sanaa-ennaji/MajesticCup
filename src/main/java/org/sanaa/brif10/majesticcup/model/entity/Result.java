@@ -1,6 +1,6 @@
 package org.sanaa.brif10.majesticcup.model.entity;
 
-import jakarta.persistence.Id;
+
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Field;
 

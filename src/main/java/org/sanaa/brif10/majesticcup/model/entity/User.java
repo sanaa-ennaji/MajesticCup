@@ -1,7 +1,6 @@
 package org.sanaa.brif10.majesticcup.model.entity;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+
 import jakarta.persistence.Id;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
