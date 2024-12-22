@@ -14,30 +14,23 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Document(collection = "competitions")
 public class Competition {
-    @MongoId
+    @Id
     @JsonProperty("_id")
     private String id;
 
-    @JsonProperty("name")
-    @Field("name")
     private String name;
 
-    @JsonProperty("numberOfTeams")
     @Field("numberOfTeams")
     private int numberOfTeams;
 
-    @JsonProperty("teams")
     @Field("teams")
     private List<String> teams;
 
-    @JsonProperty("currentRound")
     @Field("currentRound")
     private int currentRound;
 
-    @JsonProperty("rounds")
     @Field("rounds")
     private List<String> rounds;
 }

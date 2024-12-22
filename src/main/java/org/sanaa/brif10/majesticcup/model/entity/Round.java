@@ -9,21 +9,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Document(collection = "rounds")
-    public class Round {
-        @Id
-        @JsonProperty("_id")
-        private String id;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Document(collection = "rounds")
+public class Round {
+    @Id
+    @JsonProperty("_id")
+    private String id;
 
-        @JsonProperty("roundNumber")
-        private int roundNumber;
-        @JsonProperty("competitionId")
-        private String competitionId;
+    private int roundNumber;
 
-        @JsonProperty("matches")
-        private List<Match> matches;
+    private String competitionId;
 
+    private List<String> matches;
 }

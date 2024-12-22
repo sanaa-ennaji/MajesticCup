@@ -10,16 +10,11 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class Player {
     private String id;
 
-    @Field("name")
     private String name;
 
-    @Field("surname")
     private String surname;
 
-    @Field("position")
     private String position;
 
-    @Field("number")
     private int number;
 }
-

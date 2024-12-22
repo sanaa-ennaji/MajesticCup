@@ -16,12 +16,15 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class Match {
     @Id
     private String id;
+
     private int round;
+
     private String team1;
+
     private String team2;
-    @Field("results")
+
+    @Field("result")
     private Result result;
+
     private String winner;
-
-
 }

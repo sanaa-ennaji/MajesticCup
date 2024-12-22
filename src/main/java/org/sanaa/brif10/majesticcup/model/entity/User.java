@@ -14,10 +14,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
     @Id
     private String id;
+
     private String username;
+
     private String password;
-    @Enumerated(EnumType.STRING)
+
     private UserRole role;
+
     public enum UserRole {
         USER, ADMIN, OPERATOR
     }

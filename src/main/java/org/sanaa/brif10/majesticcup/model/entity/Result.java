@@ -10,12 +10,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Result {
-    @Id
-    private Long id;
     private int team1Goals;
+
     private int team2Goals;
+
     @Field("statistics")
     private List<Statistic> statistics;
-
-
 }
