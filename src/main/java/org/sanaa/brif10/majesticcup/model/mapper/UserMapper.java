@@ -1,26 +1,34 @@
 package org.sanaa.brif10.majesticcup.model.mapper;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
 import org.sanaa.brif10.majesticcup.model.dto.Request.UserRequestDTO;
 import org.sanaa.brif10.majesticcup.model.dto.Response.UserResponseDTO;
-import org.springframework.security.core.userdetails.User;
+import org.sanaa.brif10.majesticcup.model.entity.MajeUser;
 
-import java.util.List;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
+import org.sanaa.brif10.majesticcup.model.entity.Role;
+
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
 
-    @Mapping(target = "role", source = "role.name")
-    UserResponseDTO toResponseDTO(User user);
 
-    @Mapping(target = "role", source = "role")
-    User toEntity(UserRequestDTO userRequestDTO);
+    @Mapping(source = "role.id", target = "roleId")
+    @Mapping(source = "username", target = "username")
+    UserResponseDTO toResponseDTO(MajeUser entity);
 
-    List<UserResponseDTO> toResponseDTOList(List<User> users);
+    @Mapping(source = "roleId", target = "role", qualifiedByName = "mapRole")
+    @Mapping(source = "userName", target = "username")
+    MajeUser toEntity(UserRequestDTO requestDTO);
 
-    List<User> toEntityList(List<UserRequestDTO> userRequestDTOs);
-
-    void updateEntityFromRequest(UserRequestDTO userRequestDTO, @MappingTarget User user);
+    @Named("mapRole")
+    default Role mapRole(Long roleId) {
+        if (roleId == null) {
+            return null;
+        }
+        Role role = new Role();
+        role.setId(roleId);
+        return role;
+    }
 }

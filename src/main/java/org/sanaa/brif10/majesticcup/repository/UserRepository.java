@@ -1,11 +1,9 @@
 package org.sanaa.brif10.majesticcup.repository;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.security.core.userdetails.User;
+import org.sanaa.brif10.majesticcup.model.entity.MajeUser;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
 
-import java.util.List;
-
-public interface UserRepository extends MongoRepository<User, String> {
-    User findByUsername(String username);
-    List<User> findByRole(String role);
+public interface UserRepository extends JpaRepository<MajeUser, Long> {
+    Optional<MajeUser> findByUsername(String username);
 }
